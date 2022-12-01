@@ -16,13 +16,19 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-numerics.git", from: "1.0.0"),
         .package(url: "https://github.com/davecom/SwiftGraph.git", from: "3.1.0")
     ],
-    targets: (1...25).map {
+    targets: [
+        .target(
+            name: "Helpers",
+            dependencies: []
+        )
+    ] + (1...25).map {
         .executableTarget(
             name: "Day\($0)",
             dependencies: [
                 .product(name: "Algorithms", package: "swift-algorithms"),
                 .product(name: "Collections", package: "swift-collections"),
                 .product(name: "Numerics", package: "swift-numerics"),
+                "Helpers",
                 "SwiftGraph"
             ],
             resources: [.copy("Resources/day\($0).txt")],
