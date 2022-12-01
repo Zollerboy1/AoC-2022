@@ -11,22 +11,12 @@ let fileContents = try! String(contentsOf: url, encoding: .utf8)
 
 let lines = fileContents.split(separator: "\n", omittingEmptySubsequences: false)
 
-let elves = lines.split(separator: "")
-
-var max1 = 0, max2 = 0, max3 = 0
-for elf in elves {
-    let calories = elf.compactMap { Int($0) }.reduce(0, +)
-
-    if calories > max1 {
-        max3 = max2
-        max2 = max1
-        max1 = calories
-    } else if calories > max2 {
-        max3 = max2
-        max2 = calories
-    } else if calories > max3 {
-        max3 = calories
-    }
+let calories = lines.split(separator: "").map {
+    $0.compactMap { Int($0) }.sum()
 }
 
-print(max1 + max2 + max3)
+// Part 1
+print(calories.max()!)
+
+// Part 2
+print(calories.max(count: 3).sum())
