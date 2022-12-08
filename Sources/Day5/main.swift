@@ -5,8 +5,7 @@ import Foundation
 import Numerics
 import SwiftGraph
 
-let url = Bundle.module.url(forResource: "day5", withExtension: "txt")!
-let fileContents = try! String(contentsOf: url, encoding: .utf8)
+let fileContents = try! String(contentsOf: URL(filePath: "Sources/Day5/Resources/day5.txt"), encoding: .utf8)
 
 
 let parts = fileContents.split(separator: "\n", omittingEmptySubsequences: false).cut(where: \.isEmpty)

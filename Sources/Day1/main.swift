@@ -5,8 +5,10 @@ import Foundation
 import Numerics
 import SwiftGraph
 
-let url = Bundle.module.url(forResource: "day1", withExtension: "txt")!
-let fileContents = try! String(contentsOf: url, encoding: .utf8)
+let start = SuspendingClock.now
+
+
+let fileContents = try! String(contentsOf: URL(filePath: "Sources/Day1/Resources/day1.txt"), encoding: .utf8)
 
 
 let lines = fileContents.split(separator: "\n", omittingEmptySubsequences: false)
@@ -20,3 +22,6 @@ print(calories.max()!)
 
 // Part 2
 print(calories.max(count: 3).sum())
+
+
+print(start.duration(to: .now))
