@@ -19,7 +19,7 @@ let ranges = lines.compactMap { line -> (ClosedRange<Int>, ClosedRange<Int>)? in
 }
 
 print(ranges.reduce(0) { acc, ranges in
-    return acc + (ranges.0.contains(ranges.1) || ranges.1.contains(ranges.0) ? 1 : 0)
+    return acc + (ranges.0.lowerBound <= ranges.1.lowerBound && ranges.0.upperBound >= ranges.1.upperBound || ranges.1.lowerBound <= ranges.0.lowerBound && ranges.1.upperBound >= ranges.0.upperBound ? 1 : 0)
 })
 
 print(ranges.reduce(0) { acc, ranges in
