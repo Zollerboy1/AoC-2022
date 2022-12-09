@@ -13,7 +13,7 @@ let lines = fileContents.split(separator: "\n")
 let regex = /^(\d+)-(\d+),(\d+)-(\d+)$/
 
 let ranges = lines.compactMap { line -> (ClosedRange<Int>, ClosedRange<Int>)? in
-    guard let match = line.matches(of: regex).first else { return nil }
+    guard let match = line.firstMatch(of: regex) else { return nil }
 
     return (Int(match.1)!...Int(match.2)!, Int(match.3)!...Int(match.4)!)
 }
