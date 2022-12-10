@@ -1,10 +1,11 @@
 .DS_Store
 /.build
 /Packages
-/.swiftpm
 /*.xcodeproj
 xcuserdata/
 DerivedData/
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/
 
 .vscode
+
+/Sources/Day*/Resources/day*.txt
