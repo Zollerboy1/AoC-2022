@@ -1,4 +1,5 @@
 extension Sequence {
+    @inlinable
     public func cut(where predicate: (Element) -> Bool) -> ([Element], some Sequence<Element>) {
         var array = [Element]()
         var iterator = self.makeIterator()
@@ -12,12 +13,14 @@ extension Sequence {
 }
 
 extension Sequence where Element: Equatable {
+    @inlinable
     public func cut(separator: Element) -> ([Element], some Sequence<Element>) {
         self.cut { $0 == separator }
     }
 }
 
 extension Collection {
+    @inlinable
     public func cut(where predicate: (Element) -> Bool) -> (SubSequence, SubSequence) {
         if let index = self.firstIndex(where: predicate) {
             return (self[self.startIndex..<index], self[self.index(after: index)...])
@@ -28,6 +31,7 @@ extension Collection {
 }
 
 extension Collection where Element: Equatable {
+    @inlinable
     public func cut(separator: Element) -> (SubSequence, SubSequence) {
         self.cut { $0 == separator }
     }
