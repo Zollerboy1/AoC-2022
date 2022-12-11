@@ -14,7 +14,8 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-algorithms.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-collections.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-numerics.git", from: "1.0.0"),
-        .package(url: "https://github.com/davecom/SwiftGraph.git", from: "3.1.0")
+        .package(url: "https://github.com/davecom/SwiftGraph.git", from: "3.1.0"),
+        .package(url: "https://github.com/attaswift/BigInt.git", from: "5.3.0"),
     ],
     targets: [
         .target(
@@ -29,7 +30,8 @@ let package = Package(
                 .product(name: "Collections", package: "swift-collections"),
                 .product(name: "Numerics", package: "swift-numerics"),
                 "Helpers",
-                "SwiftGraph"
+                "SwiftGraph",
+                "BigInt"
             ],
             resources: [.copy("Resources/day\($0).txt")],
             swiftSettings: [
